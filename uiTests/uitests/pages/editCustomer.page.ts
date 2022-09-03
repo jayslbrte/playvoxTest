@@ -61,7 +61,7 @@ async updateCustomer(user:User){
 }
 
 async updateCustomerFieldsBlank(){
-    console.log(`user ID : ${customerID}`)
+    console.log(`Customer ID : ${customerID}`)
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()

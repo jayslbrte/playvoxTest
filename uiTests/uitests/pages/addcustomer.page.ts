@@ -43,7 +43,6 @@ async getCustomerID(){
         state: 'visible',
       });
      customerID = (await this.customerIdField().innerText()).toString()
-    console.log(`ID:  ${customerID}`)
     return customerID
 }
 }
