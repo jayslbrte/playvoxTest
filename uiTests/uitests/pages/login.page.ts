@@ -18,7 +18,6 @@ async goTo() {
 }
 
 async login(){
-    console.log(process.env.username)
     await this.userField().fill(`${process.env.username}`)
     await this.passwordField().fill(`${process.env.password}`)
     await this.submitBtn().click()

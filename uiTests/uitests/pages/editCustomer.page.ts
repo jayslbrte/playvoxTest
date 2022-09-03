@@ -71,6 +71,10 @@ async updateCustomerFieldsBlank(){
     await this.pin().fill('')
     await this.mobile().fill('')
     await this.email().fill('')
+
+    await this.page.waitForSelector('p:has-text("Edit Customer")', {
+        state: 'visible',
+      });
 }  
 
 async updateCustomerFieldsNumber(user:User){
@@ -88,15 +92,16 @@ async updateCustomerFieldsNumber(user:User){
 
 async updateCustomerFieldsSpecialChar(){
     console.log(`user ID : ${customerID}`)
+    const specialChar = `!@#$%^&'`
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
-    await this.address().fill(`!@#$%^&'`)
-    await this.city().fill(`!@#$%^&'`)
-    await this.state().fill(`!@#$%^&'`)
-    await this.pin().fill(`!@#$%^&'`)
-    await this.mobile().fill(`!@#$%^&'`)
-    await this.email().fill(`!@#$%^&'`)
+    await this.address().fill(specialChar)
+    await this.city().fill(specialChar)
+    await this.state().fill(specialChar)
+    await this.pin().fill(specialChar)
+    await this.mobile().fill(specialChar)
+    await this.email().fill(specialChar)
 }  
 
 

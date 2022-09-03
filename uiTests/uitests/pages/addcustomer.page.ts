@@ -47,5 +47,5 @@ async getCustomerID(){
     return customerID
 }
 }
-console.log(`customerID:   ${customerID}`)
+
 export {customerID}

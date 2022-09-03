@@ -29,7 +29,7 @@ export class User {
         user.gender = faker.name.gender()
         user.dob = faker.date.birthdate().toString()
         user.address = `${faker.address.buildingNumber()} ${faker.address.street()}`
-        user.city = faker.address.cityName()
+        user.city = faker.address.county()
         user.state = faker.address.state()
         user.pin = faker.phone.number(`######`)
         user.mobile = faker.phone.number(`+0478######`)
