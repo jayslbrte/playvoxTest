@@ -25,7 +25,7 @@ addresslabel = () => this.page.locator(`[data-new-gr-c-s-check-loaded] tr:nth-of
 
 
 async updateCustomer(user:User){
-    console.log(`user ID : ${customerID}`)
+    console.log(`Customer ID - Happy path : ${customerID}`)
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
@@ -61,7 +61,7 @@ async updateCustomer(user:User){
 }
 
 async updateCustomerFieldsBlank(){
-    console.log(`Customer ID : ${customerID}`)
+    console.log(`Customer ID - Blank: ${customerID}`)
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
@@ -78,7 +78,7 @@ async updateCustomerFieldsBlank(){
 }  
 
 async updateCustomerFieldsNumber(user:User){
-    console.log(`user ID : ${customerID}`)
+    console.log(`Customer ID - Numbers : ${customerID}`)
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
@@ -91,7 +91,7 @@ async updateCustomerFieldsNumber(user:User){
 }  
 
 async updateCustomerFieldsSpecialChar(){
-    console.log(`user ID : ${customerID}`)
+    console.log(`Customer ID - Special Char : ${customerID}`)
     const specialChar = `!@#$%^&'`
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
@@ -106,7 +106,7 @@ async updateCustomerFieldsSpecialChar(){
 
 
 async updateCustomerFieldsEmoji(){
-    console.log(`user ID : ${customerID}`)
+    console.log(`Customer ID - Emoji : ${customerID}`)
     await this.page.locator(`text="Edit Customer"`).click()
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
