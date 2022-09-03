@@ -19,15 +19,6 @@ To run this project, you will need to add the following environment variables to
 
         testpassword=Test@123
 
-## Installation
-
-Install playvoxTest with npm
-
-```bash
-npm i
-
-```
-
 ## Running Tests
 
 **UI Test**
