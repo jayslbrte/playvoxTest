@@ -11,13 +11,21 @@ The resources I used for testing are the following:
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .env files
+
+**For UITests .env**
 
         username=Mngr436006
 
         password=EdAzYna
 
         testpassword=Test@123
+
+**For APITests .env**
+
+        user=admin
+
+        pword=password123
 
 ## Running Tests
 
