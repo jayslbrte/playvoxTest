@@ -4,19 +4,19 @@ import { it } from "mocha";
 require("dotenv").config();
 import { faker } from "@faker-js/faker";
 import moment from "moment";
-moment().format();
+
 const request = supertest("https://restful-booker.herokuapp.com");
 let token;
 let bookingId;
 
 //These are the parameters that are used for the request body
-let firstname = faker.name.firstName();
-let lastname = faker.name.lastName();
+let firstName = faker.name.firstName();
+let lastName = faker.name.lastName();
 let checkinDate = moment().format("YYYY-MM-DD");
 let checkoutDate = moment().add(10, "days").format("YYYY-MM-DD");
 
 describe("API Testing", function (done) {
-  it.only("Generate Token", function () {
+  it("Generate Token", function () {
     return request
       .post("/auth")
       .send({
@@ -31,12 +31,12 @@ describe("API Testing", function (done) {
   });
 
   //this is the happy path that triggers response code 200
-  it("Create Booking - 200", function () {
+  it("Create Booking - statuscode 200", function () {
     return request
       .post("/booking")
       .send({
-        firstname: firstname,
-        lastname: lastname,
+        firstname: firstName,
+        lastname: lastName,
         totalprice: 11,
         depositpaid: true,
         bookingdates: {
@@ -59,7 +59,7 @@ describe("API Testing", function (done) {
     return request
       .post("/booking")
       .send({
-        lastname: lastname,
+        lastname: lastName,
         totalprice: 111,
         depositpaid: true,
         bookingdates: {
@@ -79,12 +79,13 @@ it("Create Booking - 404", function () {
   return request
     .post("/bookin")
     .send({
-      lastname: "Brown",
+      firstname: firstName,
+      lastname: lastName,
       totalprice: 111,
       depositpaid: true,
       bookingdates: {
-        checkin: "2021-01-01",
-        checkout: "2022-01-01",
+        checkin: checkinDate,
+        checkout: checkoutDate,
       },
       additionalneeds: "Breakfast",
     })
@@ -93,7 +94,7 @@ it("Create Booking - 404", function () {
       expect(res.statusCode).to.equal(404);
     });
 });
-
+//this retrieves the record using the booking ID that was created from "Create Booking - statuscode 200"
 it("Get booking ", function () {
   return request
     .post(`/booking/${bookingId}`)
