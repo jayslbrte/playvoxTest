@@ -26,7 +26,7 @@ describe("API Testing", function (done) {
       .then((res) => {
         expect(res.statusCode).to.equal(200);
         token = res.body.token;
-        console.log(token);
+        console.log(`token:  ${token}`);
       });
   });
 
@@ -49,11 +49,29 @@ describe("API Testing", function (done) {
       .set("Accept", "*/*")
       .then((res) => {
         bookingId = res.body.bookingid;
-        console.log(bookingId);
+        console.log(`bookingId: ${bookingId}`);
         expect(res.statusCode).to.equal(200);
         expect(res.body.bookingid).is.not.null;
       });
   });
+
+  it("Get booking ", function () {
+    console.log(`bookingId-GET :   ${bookingId}`);
+    return request
+      .get(`/booking/${bookingId}`)
+      .send()
+      .set("Accept", "*/*")
+      .then((res) => {
+        expect(res.statusCode).to.equal(200);
+        expect(res.body.firstname).to.equal(firstName);
+        expect(res.body.lastname).to.equal(lastName);
+        expect(res.body.totalprice).to.equal(11);
+        expect(res.body.bookingdates.checkin).to.equal(checkinDate);
+        expect(res.body.bookingdates.checkout).to.equal(checkoutDate);
+        expect(res.body.additionalneeds).to.equal("Breakfast");
+      });
+  });
+
   //the request body has no firstname that results to error 500
   it("Create Booking - 500", function () {
     return request
@@ -95,19 +113,3 @@ it("Create Booking - 404", function () {
     });
 });
 //this retrieves the record using the booking ID that was created from "Create Booking - statuscode 200"
-it("Get booking ", function () {
-  return request
-    .post(`/booking/${bookingId}`)
-    .send()
-    .set("Content-Type", "application/json")
-    .set("Accept", "*/*")
-    .then((res) => {
-      expect(res.statusCode).to.equal(200);
-      expect(res.body.firstname).to.equal(firstname);
-      expect(res.body.lastname).to.equal(lastname);
-      expect(res.body.totalprice).to.equal(11);
-      expect(res.body.bookingdates.checkin).to.equal(checkinDate);
-      expect(res.body.bookingdates.checkout).to.equal(checkoutDate);
-      expect(res.body.additionalneeds).to.equal("Breakfast");
-    });
-});
