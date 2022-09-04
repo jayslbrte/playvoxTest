@@ -25,7 +25,7 @@ To run this project, you will need to add the following environment variables to
 
 ```bash
   1. Go to the ./Playvox/playvoxTest/uiTests folder
-  2. run 'npm i'
+  2. run 'npm i' (You can install the specific packages noted below )
   3. run 'npx playwright test --headed'
 ```
 
@@ -33,7 +33,7 @@ To run this project, you will need to add the following environment variables to
 
 ```bash
   1. Go to the .Playvox/playvoxTest/apiTests folder
-  2. run 'npm i'
+  2. run 'npm i' (You can install the specific packages noted below )
   3. run 'npm test'
 
 ```

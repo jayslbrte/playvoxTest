@@ -16,6 +16,7 @@ let checkinDate = moment().format("YYYY-MM-DD");
 let checkoutDate = moment().add(10, "days").format("YYYY-MM-DD");
 
 describe("API Testing", function (done) {
+  //this generates token using the credentials from .env
   it("Generate Token", function () {
     return request
       .post("/auth")
@@ -55,6 +56,7 @@ describe("API Testing", function (done) {
       });
   });
 
+  //this retrieves the record using the booking ID that was created from "Create Booking - statuscode 200"
   it("Get booking ", function () {
     console.log(`bookingId-GET :   ${bookingId}`);
     return request
@@ -112,4 +114,3 @@ it("Create Booking - 404", function () {
       expect(res.statusCode).to.equal(404);
     });
 });
-//this retrieves the record using the booking ID that was created from "Create Booking - statuscode 200"

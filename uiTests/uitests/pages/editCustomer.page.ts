@@ -37,7 +37,7 @@ async updateCustomer(user:User){
     await this.email().fill(user.email)
     await this.editSubmitBtn().click()
 
-//verify that the customer details are updated 
+//verify that the customer details are updated correctly
     await this.customerIdField().fill(customerID)
     await this.submitBtn().click()
 
