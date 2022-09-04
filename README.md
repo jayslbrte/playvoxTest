@@ -46,4 +46,4 @@ To run this project, you will need to add the following environment variables to
 
 **API:** Supertest
 
-**pkgs**: [1] mocha - is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun, [2]Chai - is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework
+**pkgs**: [1] mocha - is a feature-rich JavaScript test framework running on Node.js and in the browser, making asynchronous testing simple and fun, [2]Chai - is a BDD / TDD assertion library for node and the browser that can be delightfully paired with any javascript testing framework, [3] Moment.js - helps Parse, validate, manipulate, and display dates and times in JavaScript.
